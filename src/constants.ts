@@ -1,4 +1,4 @@
-import { AITool, PromptExample, AssessmentQuestion, TeacherProfileResult, ClassroomActivity } from './types';
+import { AITool, PromptExample, AssessmentQuestion, TeacherProfileResult, ClassroomActivity, Course } from './types';
 
 export const AI_TOOLS: AITool[] = [
   {
@@ -475,5 +475,92 @@ export const CLASSROOM_ACTIVITIES: ClassroomActivity[] = [
     ],
     learning: 'No confiar ciegamente en la IA y mantener siempre un hábito de verificación.',
     icon: 'CheckSquare'
+  }
+];
+
+export const ACADEMY_COURSES: Course[] = [
+  {
+    id: 'c1',
+    title: 'IA sin miedo: primeros pasos para docentes',
+    level: 'Explorador',
+    duration: '2h',
+    description: 'Pierde el miedo a la tecnología y descubre cómo la IA puede ser tu mejor aliada en el aula desde cero.'
+  },
+  {
+    id: 'c2',
+    title: 'Tu primer asistente inteligente',
+    level: 'Explorador',
+    duration: '1.5h',
+    description: 'Configura y empieza a usar ChatGPT o Claude para tareas administrativas sencillas y ahorro de tiempo.'
+  },
+  {
+    id: 'c3',
+    title: 'Preguntar mejor para enseñar mejor',
+    level: 'Explorador',
+    duration: '1h',
+    description: 'Introducción al arte de crear prompts efectivos para obtener respuestas útiles de cualquier IA.'
+  },
+  {
+    id: 'c4',
+    title: 'La clase aumentada con IA',
+    level: 'Usuario práctico',
+    duration: '3h',
+    description: 'Integra herramientas visuales y generativas para enriquecer tus lecciones diarias y motivar a tus alumnos.'
+  },
+  {
+    id: 'c5',
+    title: 'IA como copiloto docente',
+    level: 'Usuario práctico',
+    duration: '2.5h',
+    description: 'Aprende a delegar tareas repetitivas a la IA: correos, resúmenes, planificación semanal y más.'
+  },
+  {
+    id: 'c6',
+    title: 'Crear materiales educativos con IA',
+    level: 'Usuario práctico',
+    duration: '2h',
+    description: 'Domina Canva Magic Studio y Gamma para crear presentaciones y guías de estudio impactantes en minutos.'
+  },
+  {
+    id: 'c7',
+    title: 'Diseño de experiencias de aprendizaje con IA',
+    level: 'Diseñador pedagógico',
+    duration: '4h',
+    description: 'Crea unidades didácticas completas donde la IA personaliza el ritmo y contenido para cada estudiante.'
+  },
+  {
+    id: 'c8',
+    title: 'El aula híbrida humano + IA',
+    level: 'Diseñador pedagógico',
+    duration: '3.5h',
+    description: 'Estrategias avanzadas para que la IA y el docente colaboren en tiempo real durante la clase.'
+  },
+  {
+    id: 'c9',
+    title: 'IA para pensamiento crítico',
+    level: 'Diseñador pedagógico',
+    duration: '3h',
+    description: 'Diseña actividades que desafíen a los alumnos a cuestionar, verificar y mejorar lo que la IA genera.'
+  },
+  {
+    id: 'c10',
+    title: 'Arquitectura pedagógica con IA',
+    level: 'Mentor',
+    duration: '5h',
+    description: 'Lidera la transformación digital de tu institución diseñando marcos de trabajo éticos y efectivos con IA.'
+  },
+  {
+    id: 'c11',
+    title: 'IA ética en educación',
+    level: 'Mentor',
+    duration: '4h',
+    description: 'Profundiza en los sesgos, la privacidad y el impacto social de la IA para guiar a tu comunidad educativa.'
+  },
+  {
+    id: 'c12',
+    title: 'Diseñar el futuro del aula',
+    level: 'Mentor',
+    duration: '4.5h',
+    description: 'Prospectiva y experimentación avanzada con modelos de IA para anticipar las competencias del mañana.'
   }
 ];

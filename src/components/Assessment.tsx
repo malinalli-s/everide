@@ -8,9 +8,10 @@ import { cn } from '../lib/utils';
 interface AssessmentProps {
   onComplete?: (result: TeacherProfileResult) => void;
   onClose: () => void;
+  onGoToAcademy?: () => void;
 }
 
-export const Assessment: React.FC<AssessmentProps> = ({ onComplete, onClose }) => {
+export const Assessment: React.FC<AssessmentProps> = ({ onComplete, onClose, onGoToAcademy }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [result, setResult] = useState<TeacherProfileResult | null>(null);
@@ -102,6 +103,14 @@ export const Assessment: React.FC<AssessmentProps> = ({ onComplete, onClose }) =
         </div>
 
         <div className="space-y-3">
+          {onGoToAcademy && (
+            <button 
+              onClick={onGoToAcademy}
+              className="w-full bg-mint text-white py-4 rounded-2xl font-bold shadow-lg shadow-mint/20 flex items-center justify-center gap-2"
+            >
+              Ver Cursos Recomendados <GraduationCap size={18} />
+            </button>
+          )}
           <button 
             onClick={onClose}
             className="w-full bg-primary text-white py-4 rounded-2xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2"

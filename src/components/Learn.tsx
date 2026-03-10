@@ -2,22 +2,35 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Terminal, Lightbulb, ShieldCheck, ClipboardCheck, ArrowRight, CheckCircle2, AlertCircle, Rocket } from 'lucide-react';
 import { PROMPT_EXAMPLES } from '../constants';
-import { UserProfile } from '../types';
+import { UserProfile, TeacherProfileResult } from '../types';
 import { cn } from '../lib/utils';
 import { ImageGenerator } from './ImageGenerator';
 import { Assessment } from './Assessment';
 
 interface LearnProps {
   profile: UserProfile;
+  onAssessmentComplete?: (result: TeacherProfileResult) => void;
+  onGoToAcademy?: () => void;
 }
 
-export const Learn: React.FC<LearnProps> = ({ profile }) => {
+export const Learn: React.FC<LearnProps> = ({ profile, onAssessmentComplete, onGoToAcademy }) => {
   const isTeacher = profile === 'teacher';
   const [activeSection, setActiveSection] = useState<'prompts' | 'ethics' | 'eval' | 'images'>(isTeacher ? 'eval' : 'prompts');
   const [showAssessment, setShowAssessment] = useState(false);
 
   if (showAssessment) {
-    return <Assessment onClose={() => setShowAssessment(false)} />;
+    return (
+      <Assessment 
+        onClose={() => setShowAssessment(false)} 
+        onGoToAcademy={() => {
+          setShowAssessment(false);
+          if (onGoToAcademy) onGoToAcademy();
+        }}
+        onComplete={(result) => {
+          if (onAssessmentComplete) onAssessmentComplete(result);
+        }}
+      />
+    );
   }
 
   return (

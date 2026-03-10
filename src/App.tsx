@@ -9,9 +9,12 @@ import { Learn } from './components/Learn';
 import { Profile } from './components/Profile';
 import { AIChat } from './components/AIChat';
 import { ClassroomActivities } from './components/ClassroomActivities';
+import { Academy } from './components/Academy';
+import { TeacherProfileResult } from './types';
 
 export default function App() {
   const [profile, setProfile] = useState<UserProfile>(null);
+  const [teacherProfile, setTeacherProfile] = useState<TeacherProfileResult | null>(null);
   const [activeTab, setActiveTab] = useState<AppTab>('home');
   const [subView, setSubView] = useState<string | null>(null);
 
@@ -57,7 +60,14 @@ export default function App() {
       return <Dashboard profile={profile} onNavigate={handleNavigate} />;
     }
     if (activeTab === 'explore') return <Explore />;
-    if (activeTab === 'learn') return <Learn profile={profile} />;
+    if (activeTab === 'learn') return (
+      <Learn 
+        profile={profile} 
+        onAssessmentComplete={setTeacherProfile} 
+        onGoToAcademy={() => setActiveTab('academy')}
+      />
+    );
+    if (activeTab === 'academy') return <Academy teacherProfile={teacherProfile} />;
     if (activeTab === 'profile') return <Profile profile={profile} onLogout={handleLogout} />;
     return null;
   };

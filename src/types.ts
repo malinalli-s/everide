@@ -1,5 +1,5 @@
 export type UserProfile = 'teacher' | 'student' | null;
-export type AppTab = 'home' | 'explore' | 'learn' | 'profile';
+export type AppTab = 'home' | 'explore' | 'learn' | 'academy' | 'profile';
 
 export interface AITool {
   id: string;
@@ -52,4 +52,14 @@ export interface ClassroomActivity {
   questions: string[];
   learning: string;
   icon: string;
+}
+
+export interface Course {
+  id: string;
+  title: string;
+  level: 'Explorador' | 'Usuario práctico' | 'Diseñador pedagógico' | 'Mentor';
+  duration: string;
+  description: string;
+  isSaved?: boolean;
+  isCompleted?: boolean;
 }
